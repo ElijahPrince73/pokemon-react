@@ -1,27 +1,40 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+/* eslint-disable comma-dangle */
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import PokeList from "./PokemonList/PokemonLists";
+import PokeList from './components/PokemonList/PokemonLists';
 
-const App = () => {
-  const [data, setData] = useState([]);
+function App() {
+  const [allPokemon, setPokemon] = useState([]);
 
-  useEffect(async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_POKEMON_API}/pokemon/`
+  const fetchPokemon = async () => {
+    const {
+      data: { results },
+    } = await axios.get(`${process.env.REACT_APP_POKEMON_API}/pokemon/`);
+
+    const pokemonUrls = results.map((pokemon) => pokemon.url);
+
+    const allPokemonResult = await Promise.all(
+      pokemonUrls.map((pokemonUrl) => axios.get(pokemonUrl))
     );
 
-    setData(data);
+    setPokemon(allPokemonResult);
+  };
+
+  useEffect(() => {
+    fetchPokemon().catch(console.error());
   }, []);
 
-  console.log(data);
+  if (!allPokemon) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="container p-6">
+    <div className="container">
       <h3 className="text-5xl">Pokedex</h3>
-      <PokeList pokemon={data.results} />
+      <PokeList pokemonData={allPokemon} />
     </div>
   );
-};
+}
 
 export default App;

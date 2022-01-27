@@ -1,0 +1,36 @@
+@media (min-width: 480px) {
+  .pokemon-card {
+    margin-bottom: 15%;
+  }
+
+  .pokemon-image {
+    background-color: #e5e5e5;
+    width: 100%;
+  }
+
+  .pokemon-content {
+    margin-left: 2%;
+  }
+
+  .pokemon-types {
+    display: flex;
+  }
+
+  .pokemon-types p {
+    margin-right: 2%;
+  }
+}
+
+@media (min-width: 768px) {
+  .pokemon-card {
+    flex: 0 0 45%;
+    margin-bottom: 3%;
+  }
+}
+
+@media (min-width: 992px) {
+  .pokemon-card {
+    flex: 0 30%;
+    margin-bottom: 3%;
+  }
+}

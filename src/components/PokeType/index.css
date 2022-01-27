@@ -1,0 +1,40 @@
+.type {
+  padding: 5px 25px;
+  border-radius: 3px;
+}
+
+.type-grass {
+  background-color: #8dc650;
+}
+
+.type-water {
+  background-color: #3487ba;
+}
+
+.type-fire {
+  background-color: #ff7030;
+}
+
+.type-poison {
+  background-color: #b373bf;
+}
+
+.type-bug {
+  background-color: #62953e;
+}
+
+.type-flying {
+  background-image: linear-gradient(#1ec0e8, #b5b0af);
+}
+
+.type-normal {
+  background-color: #bababa;
+}
+
+.pokemon-types {
+  display: flex;
+}
+
+.pokemon-types p {
+  margin-right: 2%;
+}
