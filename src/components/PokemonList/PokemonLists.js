@@ -1,13 +1,11 @@
 import React from 'react';
+import { usePokemonContext } from '../../context/AllPokemonContext/AllPokemonContext';
 import PokemonCard from '../PokemonCard/PokemonCard';
-import './index.css';
-
-import { usePokemonContext } from '../../context/PokemonContext';
 
 function PokemonList() {
   const pokemonData = usePokemonContext();
   return (
-    <div className="pokemon-container">
+    <div className="container">
       {pokemonData.map(({ data: { species, sprites, types, id } }) => (
         <PokemonCard
           species={species}

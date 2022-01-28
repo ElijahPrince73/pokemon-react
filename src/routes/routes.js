@@ -7,7 +7,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="pokemon/:pokemondId" element={<PokemonDetails />} />
+      <Route path="/pokemon/:pokemondId" element={<PokemonDetails />} />
     </Routes>
   );
 }
