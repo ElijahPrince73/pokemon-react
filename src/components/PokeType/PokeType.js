@@ -8,12 +8,18 @@ function PokeType({ types }) {
       {types.map(({ type: { name } }) => (
         <>
           {name === 'grass' ? <p className="type type-grass">{name}</p> : null}
-          {name === 'water' ? <p className="type type-water">{name}</p> : null}
-          {name === 'fire' ? <p className="type type-fire">{name}</p> : null}
-          {name === 'poison' ? (
-            <p className="type type-poison">{name}</p>
+          {name === 'water' ? (
+            <p className="type type-water text-white">{name}</p>
           ) : null}
-          {name === 'bug' ? <p className="type type-bug">{name}</p> : null}
+          {name === 'fire' ? (
+            <p className="type type-fire text-white">{name}</p>
+          ) : null}
+          {name === 'poison' ? (
+            <p className="type type-poison text-white">{name}</p>
+          ) : null}
+          {name === 'bug' ? (
+            <p className="type type-bug text-white">{name}</p>
+          ) : null}
           {name === 'flying' ? (
             <p className="type type-flying">{name}</p>
           ) : null}

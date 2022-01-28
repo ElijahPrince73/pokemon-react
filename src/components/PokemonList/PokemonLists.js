@@ -1,13 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import PokeCard from '../PokeCard/PokeCard';
+import PokemonCard from '../PokemonCard/PokemonCard';
+import './index.css';
 
-function PokemonList({ pokemonData }) {
-  console.log(pokemonData);
+import { usePokemonContext } from '../../context/PokemonContext';
+
+function PokemonList() {
+  const pokemonData = usePokemonContext();
   return (
-    <div className="pokemon-grid">
+    <div className="pokemon-container">
       {pokemonData.map(({ data: { species, sprites, types, id } }) => (
-        <PokeCard
+        <PokemonCard
           species={species}
           sprites={sprites}
           types={types}
@@ -21,18 +23,6 @@ function PokemonList({ pokemonData }) {
 
 PokemonList.defaultProps = {
   pokemonData: [],
-};
-
-PokemonList.propTypes = {
-  pokemonData: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        species: PropTypes.shape({ name: PropTypes.string }),
-        sprites: PropTypes.shape({ front_shiny: PropTypes.string }),
-        types: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
-      })
-    )
-  ),
 };
 
 export default PokemonList;

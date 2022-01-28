@@ -1,6 +1,8 @@
 @media (min-width: 480px) {
   .pokemon-card {
     margin-bottom: 15%;
+    color: #000000;
+    text-decoration: none;
   }
 
   .pokemon-image {
@@ -10,6 +12,11 @@
 
   .pokemon-content {
     margin-left: 2%;
+  }
+
+  .pokemon-name {
+    margin: 3% 0;
+    font-size: 20px;
   }
 
   .pokemon-types {
@@ -23,14 +30,19 @@
 
 @media (min-width: 768px) {
   .pokemon-card {
-    flex: 0 0 45%;
-    margin-bottom: 3%;
+    width: 45%;
   }
 }
 
 @media (min-width: 992px) {
   .pokemon-card {
-    flex: 0 30%;
+    width: 30%;
     margin-bottom: 3%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pokemon-card {
+    width: 22%;
   }
 }

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // ES6
+import { Link } from 'react-router-dom';
 import PokeType from '../PokeType/PokeType';
 import './index.css';
 
 function PokeCard({ species, sprites, types, id }) {
   return (
-    <div className="pokemon-card">
+    <Link to={`pokemon/${id}`} className="pokemon-card">
       <img className="pokemon-image" src={sprites.front_default} alt="" />
       <div className="pokemon-content">
         <p>#{id}</p>
@@ -14,7 +15,7 @@ function PokeCard({ species, sprites, types, id }) {
         </p>
         <PokeType types={types} key={id} />
       </div>
-    </div>
+    </Link>
   );
 }
 
