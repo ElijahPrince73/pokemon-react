@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'; // ES6
 import { Link } from 'react-router-dom';
 import PokemonType from '../PokemonType/PokemonType';
 import './index.css';
+import formatTypes from '../../utils/formatTypes';
 
 function PokeCard({ species, sprites, types, id }) {
+  const formatedTypes = formatTypes(types);
+
   return (
     <Link to={`/pokemon/${id}`} className="pokemon-card block">
       <img className="pokemon-image" src={sprites.front_default} alt="" />
       <div className="pokemon-content">
         <p>#{id}</p>
         <p className="font-bold pokemon-name">{species.name}</p>
-        <PokemonType types={types} key={id} />
+        <PokemonType types={formatedTypes} key={id} />
       </div>
     </Link>
   );

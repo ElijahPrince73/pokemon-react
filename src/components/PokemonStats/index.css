@@ -1,8 +1,10 @@
 .pokemon-stats {
   border-radius: 3px;
   margin: 10px 0;
+  background-color: #4e4e4e7b;
+  padding: 1% 2%;
 }
 
 .title {
-  padding: 10px;
+  padding: 10px 0;
 }

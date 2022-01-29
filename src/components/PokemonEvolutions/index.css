@@ -1,0 +1,63 @@
+.pokemon-evolutions-container {
+  background-color: #4e4e4e;
+  padding: 1% 2%;
+}
+
+@media (min-width: 380px) {
+  .evolution-image {
+    border-radius: 100%;
+    border: 3px solid white;
+    background-color: #6c6969;
+    width: 40%;
+    margin: auto;
+  }
+
+  .pokemon-evolutions-card {
+    margin-top: 10%;
+  }
+
+  .chevron::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 1em;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 1em;
+    color: white;
+    margin: auto;
+  }
+
+  .chevron.bottom:before {
+    transform: rotate(135deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .pokemon-evolutions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .pokemon-evolutions-card {
+    display: flex;
+    margin-top: 0%;
+  }
+
+  .evolution-image {
+    border-radius: 100%;
+    border: 3px solid white;
+    background-color: #6c6969;
+    width: 70%;
+    margin: auto;
+  }
+  .chevron::before {
+    height: 3em;
+    width: 3em;
+  }
+
+  .chevron.bottom:before {
+    transform: rotate(45deg);
+  }
+}

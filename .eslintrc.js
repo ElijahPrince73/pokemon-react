@@ -22,5 +22,7 @@ module.exports = {
     'react/prop-types': 1,
     camelcase: 0,
     'operator-linebreak': 0,
+    'implicit-arrow-linebreak': 0,
+    'function-paren-newline': 0,
   },
 };

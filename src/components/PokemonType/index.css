@@ -1,3 +1,8 @@
+.pokemon-types {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .type {
   padding: 5px 25px;
   border-radius: 3px;
@@ -29,12 +34,4 @@
 
 .type-normal {
   background-color: #bababa;
-}
-
-.pokemon-types {
-  display: flex;
-}
-
-.pokemon-types p {
-  margin-right: 2%;
 }

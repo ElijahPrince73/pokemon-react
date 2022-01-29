@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import './index.css';
 
-function PokeType({ types }) {
+function PokeType({ types, className = '' }) {
   return (
-    <div className="pokemon-types">
-      {types.map(({ type: { name } }) => (
+    <div className={`pokemon-types ${className}`}>
+      {types.map(({ name }) => (
         <>
           {name === 'grass' ? (
             <p key={name} className="type type-grass">
@@ -50,6 +50,7 @@ function PokeType({ types }) {
 
 PokeType.defaultProps = {
   types: [],
+  className: '',
 };
 
 PokeType.propTypes = {
@@ -58,6 +59,7 @@ PokeType.propTypes = {
       name: PropTypes.string,
     })
   ),
+  className: PropTypes.string,
 };
 
 export default PokeType;

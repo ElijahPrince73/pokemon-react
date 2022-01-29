@@ -1,4 +1,13 @@
 .pokemon-base-info {
   background-color: #169dce;
   padding: 10px;
+  border-radius: 3px;
+}
+
+.pokemon-base-info-text {
+  margin-top: 10px;
+}
+
+.pokemon-base-info-column {
+  flex: 0 50%;
 }

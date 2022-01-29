@@ -1,13 +1,8 @@
-@media (min-width: 480px) {
+@media (min-width: 380px) {
   .pokemon-card {
     margin-bottom: 15%;
     color: #000000;
     text-decoration: none;
-  }
-
-  .pokemon-image {
-    background-color: #e5e5e5;
-    width: 100%;
   }
 
   .pokemon-content {
@@ -21,10 +16,6 @@
 
   .pokemon-types {
     display: flex;
-  }
-
-  .pokemon-types p {
-    margin-right: 2%;
   }
 }
 
