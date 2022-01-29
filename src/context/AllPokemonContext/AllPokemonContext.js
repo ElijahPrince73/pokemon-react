@@ -10,7 +10,9 @@ function PokemonContentProvider({ children }) {
   const fetchPokemon = async () => {
     const {
       data: { results },
-    } = await axios.get(`${process.env.REACT_APP_POKEMON_API}/pokemon/`);
+    } = await axios.get(
+      `${process.env.REACT_APP_POKEMON_API}/pokemon/?limit=20`
+    );
 
     const pokemonUrls = results.map((pokemon) => pokemon.url);
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import formatTypes from '../utils/formatTypes';
 
+// import DetailsHeader from '../components/DetailsHeader/DetailsHeader';
 import PokemonStats from '../components/PokemonStats/PokemonStats';
 import PokeType from '../components/PokemonType/PokemonType';
 import PokemonBaseInfo from '../components/PokemonBaseInfo/PokemonBaseInfo';
@@ -30,16 +31,16 @@ function PokemonDetails() {
     const evoChain = [];
 
     // eslint-disable-next-line consistent-return
-    const getEvoChain = (arr) => {
+    const getEvolutionChain = (arr) => {
       if (arr[0].evolves_to.length > 0) {
         evoChain.push(arr[0].species.name);
-        getEvoChain(arr[0].evolves_to);
+        getEvolutionChain(arr[0].evolves_to);
       } else {
         evoChain.push(arr[0].species.name);
         return 0;
       }
     };
-    getEvoChain([evolutionChain.data.chain]);
+    getEvolutionChain([evolutionChain.data.chain]);
 
     const pokemonEvolutionChainResult = await Promise.all(
       evoChain.map((pokemonName) =>
@@ -110,37 +111,42 @@ function PokemonDetails() {
     evolutionChain,
   } = pokemonDetails;
 
-  return (
-    <div className="pokemon-container">
-      <h3 className="pokemon-name text-center">
-        {name} #{id}
-      </h3>
-      <div className="row">
-        <div className="column">
-          <img className="pokemon-image" src={sprites.front_default} alt="" />
-          <PokemonStats data={stats} />
-        </div>
-        <div className="column">
-          <p className="pokemon-description">
-            {flavor_text_entries[9].flavor_text}
-          </p>
-          <PokemonBaseInfo
-            height={height}
-            weight={weight}
-            abilities={abilities}
-          />
-          <div className="mt-3">
-            <h4 className="pokemon-name title">Type</h4>
-            <PokeType types={types} />
-          </div>
-          <div className="mt-3">
-            <h4 className="pokemon-name title">Weaknesses</h4>
-            <PokeType weakness types={weaknesses} />
-          </div>
-        </div>
-      </div>
+  // Need to get all pokemon and get the next one by id
 
-      <PokemonEvolutions evolutionChain={evolutionChain} types={types} />
+  return (
+    <div>
+      {/* <DetailsHeader evolutionChain={evolutionChain} pokemonId={id} /> */}
+      <div className="pokemon-container">
+        <h3 className="pokemon-name text-center">
+          {name} #{id}
+        </h3>
+        <div className="row">
+          <div className="column">
+            <img className="pokemon-image" src={sprites.front_default} alt="" />
+            <PokemonStats data={stats} />
+          </div>
+          <div className="column">
+            <p className="pokemon-description">
+              {flavor_text_entries[9].flavor_text}
+            </p>
+            <PokemonBaseInfo
+              height={height}
+              weight={weight}
+              abilities={abilities}
+            />
+            <div className="mt-3">
+              <h4 className="pokemon-name title">Type</h4>
+              <PokeType types={types} />
+            </div>
+            <div className="mt-3">
+              <h4 className="pokemon-name title">Weaknesses</h4>
+              <PokeType weakness types={weaknesses} />
+            </div>
+          </div>
+        </div>
+
+        <PokemonEvolutions evolutionChain={evolutionChain} types={types} />
+      </div>
     </div>
   );
 }
