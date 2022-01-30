@@ -1,17 +1,17 @@
 import React from 'react';
 import { usePokemonContext } from '../../context/AllPokemonContext/AllPokemonContext';
 import PokemonCard from '../PokemonCard/PokemonCard';
-import Loading from '../Loader/Loader';
+import Loader from '../Loader/Loader';
 
 function PokemonList() {
   const { allPokemon, fetchPokemon, loading } = usePokemonContext();
 
   if (loading) {
-    return <Loading />;
+    return <Loader />;
   }
 
   return (
-    <div>
+    <>
       <div className="container">
         {allPokemon.map(({ data: { species, sprites, types, id } }) => (
           <PokemonCard
@@ -24,11 +24,11 @@ function PokemonList() {
         ))}
       </div>
       <div className="text-center">
-        <button className="btn-blue" type="button" onClick={fetchPokemon}>
+        <button className="btn-blue hover" type="button" onClick={fetchPokemon}>
           Load More Pokemon
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

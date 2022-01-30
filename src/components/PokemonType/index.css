@@ -32,6 +32,46 @@
   background-image: linear-gradient(#1ec0e8, #b5b0af);
 }
 
+.type-psychic {
+  background-color: #f858ae;
+}
+
+.type-ground {
+  background-color: #dc903e;
+}
+
+.type-ice {
+  background-color: #1ec0e8;
+}
+
+.type-rock {
+  background-color: #4e4e4e;
+}
+
+.type-steel {
+  background-color: #aab;
+}
+
+.type-fighting {
+  background-color: #b54;
+}
+
+.type-electric {
+  background-color: #fc3;
+}
+
+.type-ghost {
+  background-color: #66b;
+}
+
+.type-dragon {
+  background-color: #76e;
+}
+
+.type-fairy {
+  background-color: #e9e;
+}
+
 .type-normal {
   background-color: #bababa;
 }

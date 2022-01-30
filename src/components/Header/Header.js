@@ -30,7 +30,7 @@ function Header() {
             />
             <button
               type="button"
-              className="btn-orange"
+              className="btn-orange hover"
               onClick={() => searchPokemon(value)}
             >
               Search

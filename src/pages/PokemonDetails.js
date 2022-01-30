@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import formatTypes from '../utils/formatTypes';
 
-// import DetailsHeader from '../components/DetailsHeader/DetailsHeader';
 import PokemonStats from '../components/PokemonStats/PokemonStats';
 import PokeType from '../components/PokemonType/PokemonType';
 import PokemonBaseInfo from '../components/PokemonBaseInfo/PokemonBaseInfo';
 import PokemonEvolutions from '../components/PokemonEvolutions/PokemonEvolutions';
+import Loader from '../components/Loader/Loader';
 
 function PokemonDetails() {
   const { pokemondId } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setIsLoading] = useState(true);
   const [pokemonDetails, setPokemon] = useState({});
 
   const fetchPokemonDetails = async () => {
@@ -97,8 +97,8 @@ function PokemonDetails() {
     fetchPokemonDetails().catch(console.error());
   }, []);
 
-  if (isLoading) {
-    return <div>Loading</div>;
+  if (loading) {
+    return <Loader />;
   }
 
   const {
@@ -115,12 +115,14 @@ function PokemonDetails() {
     evolutionChain,
   } = pokemonDetails;
 
-  // Need to get all pokemon and get the next one by id
-
   return (
     <div>
-      {/* <DetailsHeader evolutionChain={evolutionChain} pokemonId={id} /> */}
       <div className="pokemon-container">
+        <div>
+          <a href="/" className="go-back text-center">
+            Go back home
+          </a>
+        </div>
         <h3 className="pokemon-name text-center">
           {name} #{id}
         </h3>

@@ -38,7 +38,7 @@ function Filter() {
   return (
     <div className="filter-container">
       <button
-        className="btn-blue surprise-btn"
+        className="btn-blue surprise-btn hover"
         type="button"
         onClick={() => navigate(path)}
       >
