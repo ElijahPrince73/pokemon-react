@@ -71,7 +71,11 @@ function PokemonDetails() {
       ({ data }) => data.damage_relations.double_damage_from
     );
 
-    const allWeakness = [...pokemonWeakness[0], ...pokemonWeakness[1]];
+    const allWeakness = pokemonWeakness.map((weaknesses) =>
+      weaknesses.map((weakness) => ({ name: weakness.name }))
+    );
+
+    const formatedWeakens = [].concat(...allWeakness);
 
     const { types } = pokemonResult[0].data;
 
@@ -80,7 +84,7 @@ function PokemonDetails() {
     const pokemonCombinedResults = {
       ...pokemonResult[0].data,
       ...pokemonResult[1].data,
-      weaknesses: allWeakness,
+      weaknesses: formatedWeakens,
       types: formatedTypes,
       evolutionChain: pokemonEvolutionChain,
     };
