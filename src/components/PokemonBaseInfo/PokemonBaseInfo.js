@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 function PokemonBaseInfo({ height, weight, abilities }) {
@@ -29,14 +30,22 @@ function PokemonBaseInfo({ height, weight, abilities }) {
         <div className="pokemon-base-info-column">
           <h4 className="text-white font-regular">Abilities</h4>
           <p className="pokemon-base-info-text">
-            {abilities.map(({ ability }) => (
-              <p key={ability.name}>{ability.name}</p>
-            ))}
+            {abilities.map(({ ability }) => ability.name)}
           </p>
         </div>
       </div>
     </div>
   );
 }
+
+PokemonBaseInfo.propTypes = {
+  height: PropTypes.number,
+  weight: PropTypes.number,
+  abilities: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    })
+  ),
+};
 
 export default PokemonBaseInfo;

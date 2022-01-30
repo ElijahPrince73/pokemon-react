@@ -54,7 +54,7 @@ function PokemonContentProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchPokemon().catch(console.error());
+    fetchPokemon().catch();
   }, []);
 
   const pokemonValues = useMemo(() => ({

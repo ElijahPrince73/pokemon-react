@@ -94,7 +94,7 @@ function PokemonDetails() {
   };
 
   useEffect(() => {
-    fetchPokemonDetails().catch(console.error());
+    fetchPokemonDetails().catch();
   }, []);
 
   if (loading) {

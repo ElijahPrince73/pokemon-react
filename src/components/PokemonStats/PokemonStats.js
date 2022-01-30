@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, ResponsiveContainer } from 'recharts';
 import './index.css';
 
@@ -30,5 +31,14 @@ function PokemonStats({ data }) {
     </div>
   );
 }
+
+PokemonStats.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      baseStat: PropTypes.number,
+      name: PropTypes.string,
+    })
+  ),
+};
 
 export default PokemonStats;
