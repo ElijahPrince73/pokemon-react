@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import formatTypes from '../utils/formatTypes';
 
+import Layout from '../components/Layout/Layout';
 import PokemonStats from '../components/PokemonStats/PokemonStats';
 import PokeType from '../components/PokemonType/PokemonType';
 import PokemonBaseInfo from '../components/PokemonBaseInfo/PokemonBaseInfo';
@@ -116,13 +117,11 @@ function PokemonDetails() {
   } = pokemonDetails;
 
   return (
-    <div>
+    <Layout hideFilters>
       <div className="pokemon-container">
-        <div>
-          <a href="/" className="go-back text-center">
-            Go back home
-          </a>
-        </div>
+        <Link to="/" className="go-back mt-3 block">
+          Go back home
+        </Link>
         <h3 className="pokemon-name text-center">
           {name} #{id}
         </h3>
@@ -153,7 +152,8 @@ function PokemonDetails() {
 
         <PokemonEvolutions evolutionChain={evolutionChain} types={types} />
       </div>
-    </div>
+    </Layout>
+
   );
 }
 
